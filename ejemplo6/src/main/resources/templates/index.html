@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Venta de producto</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link th:rel="stylesheet" th:href="@{assets/bootstrap-datepicker/css/bootstrap-datepicker.css}"/>
+    <link th:rel="stylesheet" th:href="@{assets/bootstrap-datepicker/css/bootstrap-datepicker.standalone.css}"/>
+    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link th:rel="stylesheet" th:href="@{webjars/font-awesome/5.11.2/css/all.css} "/>
+</head>
+<body>
+
+
+	<div class="container my-3">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+        <nav class="navbar navbar-dark bg-primary"> 
+        <h2 style="color:#FFFFFF" align="center">Ingresar producto</h2>
+		</nav>
+		<br>
+		<br>
+           
+				<form th:action="@{/formProducto}" th:object="${producto}" method="post">
+				
+				 <div class="form-row">
+				
+					<div class="col-md-6 form-group">
+						<label class="small mb-1" for="name">Nombre del producto</label> 
+						<input class="form-control" type="text" th:field="*{nombre}" id="name" placeholder="Ingrese nombre"  /><br>
+						<span class="form-text text-danger" th:errors="*{nombre}" style="color: #FF0000"></span><br>
+					
+					</div>
+
+					<div class="col-md-6 form-group">
+						<label class="small mb-1" for="desc">Descripción</label> 
+						<input class="form-control" type="text" th:field="*{descripcion}" id="desc" placeholder="Ingrese descripcion" style="width: 400px"/><br> 
+						<span class="form-text text-danger" th:errors="*{descripcion}" style="color: #FF0000"></span><br>
+					</div>
+
+					<div class="col-md-6 form-group">
+						<label for="price">Precio</label> 
+						<input class="form-control" type="number" th:field="*{precio}" id="price" placeholder="Ingrese precio" /><br> 
+						<span class="form-text text-danger" th:errors="*{precio}" style="color: #FF0000"></span><br>
+					</div>
+
+					<div class="col-md-6 form-group">
+						<label for="fecha">Fecha de vencimiento</label> 
+						<input class="form-control" type="text" th:field="*{vencimiento}" id="fecha" placeholder="Ingrese fecha 00/00/0000" /> 
+						<span class="form-text text-danger" th:errors="*{vencimiento}" style="color: #FF0000"></span>
+					</div>
+
+					
+						<button type="submit" class="btn btn-primary btn-block mt-3">Agregar Producto</button>
+				
+				</form>
+       	 	</div>
+    	</div>
+	</div>
+
+
+</body>
+</html>
